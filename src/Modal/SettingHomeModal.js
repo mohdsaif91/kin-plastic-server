@@ -6,6 +6,7 @@ const settingHomeSchema = mongoose.Schema({
     type: String,
   },
   paralexData: [],
+  bestProduct: { type: [], unique: true },
   card1: {
     heading: {
       type: String,
