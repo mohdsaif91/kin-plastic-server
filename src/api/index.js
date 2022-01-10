@@ -6,6 +6,9 @@ const router = express.Router();
 const setting = require("./Setting");
 const Categories = require("./Categories");
 const product = require("./Product");
+const service = require("./service");
+const AboutUs = require("./AboutUs");
+const Email = require("./Email");
 
 router.get("/", (req, res) => {
   res.json({
@@ -18,5 +21,8 @@ router.use("/auth", Auth);
 router.use("/setting", setting);
 router.use("/category", Categories);
 router.use("/product", product);
+router.use("/service", service);
+router.use("/aboutus", AboutUs);
+router.use("/email", Email);
 
 module.exports = router;
