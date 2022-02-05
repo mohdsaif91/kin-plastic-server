@@ -1,5 +1,6 @@
 const ProductModal = require("../Modal/ProductModal");
 const settingHomeModal = require("../Modal/SettingHomeModal");
+const ClientModal = require("../Modal/ClientModal");
 
 const createSettingHome = async (req, res) => {
   try {
@@ -30,9 +31,20 @@ const getSettinghomePage = async (req, res) => {
     if (!bestProductData) {
       throw "something went wrong";
     }
+    const ClientData = await ClientModal.find({});
+    if (!ClientData) {
+      throw "something went wrong";
+    }
+    const ProductData = await ProductModal.find({});
+    if (!ProductData) {
+      throw "something went wrong";
+    }
+
     const settingParent = {
       setting: settingData[0],
       bestProductData,
+      client: ClientData,
+      product: ProductData,
     };
 
     res.status(200).json(settingParent);

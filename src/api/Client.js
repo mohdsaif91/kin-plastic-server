@@ -12,7 +12,11 @@ const storage = multer.memoryStorage({
 });
 
 const uploadClient = multer({ storage }).single("clientImage");
+const editClient = multer({ storage }).single("clientImage");
 
 router.post("/", uploadClient, ClientController.addClient);
+router.get("/", ClientController.getClient);
+router.put("/", editClient, ClientController.editClient);
+router.delete("/:id/:imageName", ClientController.deleteClient);
 
 module.exports = router;
