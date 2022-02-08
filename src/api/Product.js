@@ -20,5 +20,6 @@ Router.get("/getAllProducts", productController.getAllProducts);
 Router.post("/addBestProduct", productController.addBestProduct);
 Router.get("/bestProduct", productController.getBestProduct);
 Router.delete("/:id", productController.deletebestProduct);
+Router.get("/:id", productController.getProductById);
 
 module.exports = Router;

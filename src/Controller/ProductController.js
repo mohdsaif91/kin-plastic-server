@@ -207,6 +207,23 @@ const deletebestProduct = (req, res) => {
   }
 };
 
+const getProductById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      res.status(400).send("Id is not defined !");
+    }
+    const foundProduct = await ProductModal.findById(id);
+    if (!foundProduct) {
+      res.status(400).send("no product found !");
+    }
+    res.status(200).send(foundProduct);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+};
+
 module.exports = {
   addBestProduct,
   addController,
@@ -216,4 +233,5 @@ module.exports = {
   getBestProduct,
   getProduct,
   getProductByCategory,
+  getProductById,
 };
