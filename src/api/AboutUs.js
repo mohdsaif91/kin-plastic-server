@@ -27,5 +27,6 @@ router.delete("/employee/:id/:imageName", AboutUscontroller.deleteEmployee);
 router.put("/organasation", AboutUscontroller.updateOganisation);
 router.get("/organisation", AboutUscontroller.getOrganisationData);
 router.get("/organisationOwner", AboutUscontroller.getOrganisationOwner);
+router.post("/socialMedia", AboutUscontroller.addSocialMedia);
 
 module.exports = router;

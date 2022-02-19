@@ -5,6 +5,7 @@ const aboutusOrganisationSchema = mongoose.Schema({
   shortStory: "",
   locationContact: [],
   emailIds: [],
+  social: [],
 });
 
 const aboutUsOrganisationModal = mongoose.model(

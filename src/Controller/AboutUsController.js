@@ -238,8 +238,26 @@ const getOrganisationOwner = async (req, res) => {
   }
 };
 
+const addSocialMedia = async (req, res) => {
+  try {
+    console.log(req.body._id);
+    await AboutUsOrganisation.findByIdAndUpdate(
+      req.body._id,
+      req.body,
+      (err, data) => {
+        if (err) throw err;
+        res.status(200).send(req.body);
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+};
+
 module.exports = {
   addEmployee,
+  addSocialMedia,
   addUpdateOwner,
   deleteEmployee,
   getEmployee,
