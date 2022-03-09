@@ -41,6 +41,9 @@ const productSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  temperature: {
+    type: String,
+  },
 });
 
 const productModal = mongoose.model("products", productSchema);
