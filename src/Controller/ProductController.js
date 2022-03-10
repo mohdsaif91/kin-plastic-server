@@ -135,7 +135,7 @@ const getProductByCategory = async (req, res) => {
       categoryName: req.params.catName,
     });
     if (!products) throw err;
-    res.status(200).send(products);
+    res.status(200).send({ categoryName: req.params.catName, products });
   } catch (error) {
     res.status(500).send(error);
   }
