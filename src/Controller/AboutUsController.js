@@ -240,7 +240,6 @@ const getOrganisationOwner = async (req, res) => {
 
 const addSocialMedia = async (req, res) => {
   try {
-    console.log(req.body._id);
     await AboutUsOrganisation.findByIdAndUpdate(
       req.body._id,
       req.body,
@@ -250,7 +249,6 @@ const addSocialMedia = async (req, res) => {
       }
     );
   } catch (error) {
-    console.log(error);
     res.status(500).send(error);
   }
 };

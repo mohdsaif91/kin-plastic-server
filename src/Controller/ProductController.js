@@ -155,12 +155,12 @@ const getAllProducts = async (req, res) => {
 
 const addBestProduct = async (req, res) => {
   try {
-    await settingHomeModal.findByIdAndUpdate(
-      { _id: req.body._id },
-      { $set: req.body },
+    await ProductModal.findByIdAndUpdate(
+      { _id: new ObjectId(req.body.id) },
+      { $set: { bestProduct: true } },
       (err, data) => {
         if (err) throw err;
-        res.status(200).send(req.body);
+        res.status(200).send(req.body.id);
       }
     );
   } catch (error) {
@@ -189,19 +189,17 @@ const getBestProduct = async (req, res) => {
   }
 };
 
-const deletebestProduct = (req, res) => {
+const deletebestProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    settingHomeModal.findByIdAndUpdate(
-      { _id: "614776bc04d0615fdc17335b" },
-      {
-        $pull: { bestProduct: { $in: id } },
-      },
+    await ProductModal.findByIdAndUpdate(
+      { _id: id },
+      { $set: { bestProduct: false } },
       (err, data) => {
         if (err) throw err;
+        res.status(201).send(id);
       }
     );
-    res.status(201).send(id);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -219,7 +217,6 @@ const getProductById = async (req, res) => {
     }
     res.status(200).send(foundProduct);
   } catch (error) {
-    console.log(error);
     res.status(500).send(error);
   }
 };

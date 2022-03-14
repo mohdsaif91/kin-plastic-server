@@ -26,7 +26,7 @@ const getSettinghomePage = async (req, res) => {
       throw "something went wrong";
     }
     const bestProductData = await ProductModal.find({
-      _id: { $in: [...settingData[0].bestProduct] },
+      bestProduct: true,
     });
     if (!bestProductData) {
       throw "something went wrong";
