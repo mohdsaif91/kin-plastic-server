@@ -115,7 +115,6 @@ const deleteCategory = async (req, res) => {
       throw "plz provide id for deleting";
     }
   } catch (error) {
-    console.log(error);
     res.status(500).json(error);
   }
 };
