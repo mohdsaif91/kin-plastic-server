@@ -6,8 +6,8 @@ const AboutUsmodal = require("../Modal/AboutUsModal");
 const EmployeeModal = require("../Modal/EmployeeModal");
 const AboutUsOrganisation = require("../Modal/AboutUsOrganisation");
 
-const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY_ID;
-const AWS_SECRET_KEY = process.env.AWS_SECRET_ACCESS_KEY;
+const AWS_ACCESS_KEY = process.env.ACCESS_KEY_ID;
+const AWS_SECRET_KEY = process.env.SECRET_ACCESS_KEY;
 
 const s3 = new AWS.S3({
   accessKeyId: AWS_ACCESS_KEY,
